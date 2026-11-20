@@ -1,30 +1,37 @@
 ## Современные правила написания кода на Python
-Современные правила написания кода на Python основаны на PEP 8 (Python Enhancement Proposal 8) — официальном руководстве по стилю кода. Вот основные рекомендации:
+Современные правила написания кода на Python основаны на `PEP 8` (Python Enhancement Proposal 8) — официальном руководстве по стилю кода. Вот основные рекомендации:
 
 ## Отступы и пробелы
 
 - Отступы: 4 пробела на уровень (не табуляция). 
 - Пробелы вокруг операторов:
 
+
+```python
 x = 5 # правильно 
 
 y = x + 10
+```
 
 - Нет пробелов внутри скобок и перед запятыми:
 
+```python
 list_example = [1, 2, 3] # правильно
+```
 
 ## Длина строки
  - Максимум 79 символов для кода (по PEP 8). 
  - Для комментариев и docstrings — 72 символа. 
  - Перенос строк через \ или скобки:
 
+```python
 long_string = ( "Это очень длинная строка, " "которую нужно перенести." )
+```
 
 ## Именование 
-- Переменные и функции: snake_case (user_name, calculate_total).
+- Переменные и функции: `snake_case` (`user_name`, `calculate_total`).
 
-- Константы: UPPER_CASE (MAX_USERS, DEFAULT_VALUE).
+- Константы: `UPPER_CASE` (`MAX_USERS`, `DEFAULT_VALUE`).
 
 ## Импорты 
 Группировать импорты в порядке:
@@ -33,8 +40,12 @@ long_string = ( "Это очень длинная строка, " "котору�
  - Локальные модули (from . import utils).
 
 Каждый импорт — на новой строке:
-
-import os import sys from typing import List, Dict
+```python
+import os 
+import sys
+from typing
+import List, Dict
+```
 
 ## Пустые строки 
 
@@ -42,26 +53,31 @@ import os import sys from typing import List, Dict
 - 1 пустая строка между методами класса. Внутри функции — для логического разделения блоков.
 
 ## Пример хорошо оформленного кода
+```python
+import os
+from typing import List
 
-import os from typing import List
 
-class UserManager: """Управляет пользователями в системе."""
+class UserManager:
+    """Управляет пользователями в системе."""
 
-def __init__(self, max_users: int) -> None:
-    self._max_users = max_users
-    self._users: List[str] = []
+    def __init__(self, max_users: int) -> None:
+        self._max_users = max_users
+        self._users: List[str] = []
 
-def add_user(self, username: str) -> bool:
-    """Добавляет пользователя, если есть место."""
-    if len(self._users) < self._max_users:
-        self._users.append(username)
-        return True
-    return False
-def main() -> None: manager = UserManager(10) manager.add_user("alice")
+    def add_user(self, username: str) -> bool:
+        """Добавляет пользователя, если есть место."""
+        if len(self._users) < self._max_users:
+            self._users.append(username)
+            return True
+        return False
 
-if name == "main": main()
 
-Соблюдение этих правил делает код читаемым, единообразным и удобным для поддержки. Для автоматизации используйте инструменты вроде pre-commit hooks с black и flake8.
+def main() -> None:
+    manager = UserManager(10)
+    manager.add_user("alice")
+```
+Соблюдение этих правил делает код читаемым, единообразным и удобным для поддержки. Для автоматизации используйте инструменты вроде pre-commit hooks с `black` и `flake8`.
 
 ## Цель
 Статья написана в образовательных целях на онлайн-курсе "Git и Github" в школе программирования "Лидер".
